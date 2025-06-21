@@ -69,7 +69,7 @@ class App extends Component {
 
   onPictureSubmit = () => {
     this.setState({ imageUrl: this.state.input })
-    fetch('http://localhost:3000/image', {
+    fetch('https://smartbrain-api-roai.onrender.com/image', {
       method: 'post',
       headers: {
         'Content-Type': 'application/json'
@@ -81,7 +81,7 @@ class App extends Component {
       .then(response => response.json())
       .then(response => {
         console.log(`fetch response: ${response}`)
-        fetch('http://localhost:3000/image', {
+        fetch('https://smartbrain-api-roai.onrender.com/image', {
           method: 'put',
           headers: {
             'Content-Type': 'application/json'
@@ -102,7 +102,7 @@ class App extends Component {
 
   onRouteChange = (route) => {
     if (route === 'signout') {
-      fetch('http://localhost:3000/logout', {
+      fetch('https://smartbrain-api-roai.onrender.com/logout', {
         method: 'get',
         headers: {
           'Content-Type': 'application/json'
@@ -118,7 +118,7 @@ class App extends Component {
     } else if (route === 'home') {
       this.setState({ isSignedIn: true })
     } else if (route === 'profile') {
-      fetch(`http://localhost:3000/profile/${this.state.user._id}`, {
+      fetch(`https://smartbrain-api-roai.onrender.com/profile/${this.state.user._id}`, {
         method: 'get',
         headers: {
           'Content-Type': 'application/json'
